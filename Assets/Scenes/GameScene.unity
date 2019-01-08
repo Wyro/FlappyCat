@@ -333,6 +333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 692695559}
   StartGame: 0
+  PlayerUI: {fileID: 1161231507}
+  InformationForPlayer: {fileID: 1730107129}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +767,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692695559}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.7
@@ -791,8 +793,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Force: 180
   MyVelocity: 1
-  myRigidbody: {fileID: 692695563}
-  EndingUI: {fileID: 1161231504}
+  MyRigidbody: {fileID: 692695563}
+  GameManager: {fileID: 372245257}
 --- !u!4 &770600535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7309219676354698119, guid: d27336b07efb165459fc3210cc1638c9,
@@ -1020,7 +1022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1161231505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1401,7 @@ GameObject:
   - component: {fileID: 1730107130}
   - component: {fileID: 1730107129}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Information
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

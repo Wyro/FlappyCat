@@ -6,12 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float Force = 1;
     public float MyVelocity = 1;
-    public Rigidbody2D myRigidbody;
-    public GameObject EndingUI;
+    public Rigidbody2D MyRigidbody;
+    public GameManager GameManager;
 
     void Start()
     {
-        this.myRigidbody.simulated = true;
+        this.MyRigidbody.simulated = true;
+        GameManager = GameManager.GetComponent<GameManager>();
     }
     
     void Update()
@@ -24,30 +25,29 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Die();
-        EndingUI.SetActive(true);
+        GameManager.ShowUI("You have failed!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EndingUI.SetActive(true);
+        GameManager.ShowUI("Congratulations!");
     }
 
     public void Die()
     {
-        Debug.Log("You died");
         this.gameObject.SetActive(false);
     }
 
     public void MovePlayer()
     {
-        myRigidbody.velocity = new Vector2(MyVelocity, myRigidbody.velocity.y);
+        MyRigidbody.velocity = new Vector2(MyVelocity, MyRigidbody.velocity.y);
     }
 
     public void AddForce()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            myRigidbody.AddForce(transform.up * Force);
+            MyRigidbody.AddForce(transform.up * Force);
         }
     }
 }

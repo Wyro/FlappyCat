@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
     public bool StartGame = false;
+    public Canvas PlayerUI;
+    public Text InformationForPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player.GetComponent<Rigidbody2D>().simulated = false;
     }
 
     // Update is called once per frame
@@ -26,5 +28,11 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ShowUI(string Information)
+    {
+        PlayerUI.gameObject.SetActive(true);
+        InformationForPlayer.text = Information;
     }
 }
